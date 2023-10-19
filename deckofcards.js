@@ -40,8 +40,8 @@ class DeckOfCards {
 
 let cardSuits = ['Hearts','Clubs','Spades','Diamonds']
 let cardValues = ['2','3','4','5','6','7','8','9','10','Jack','Queen','King','Ace'] 
-let deck1 = new DeckOfCards(cardSuits,cardValues);
-deck1.createADeck()
+let deck1 = new DeckOfCards();
+deck1.createADeck(cardSuits,cardValues)
 console.log(deck1);
 
 
