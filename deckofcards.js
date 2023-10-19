@@ -14,16 +14,18 @@
 //what properties should a deck of cards have
 //what do we want it to do? --> methods like shuffle and deal
 
-
-
 import { Card } from "/Users/user2020/projects/deck-of-cards/card.js";
 
-class DeckOfCards {
+let cardSuits = ['Hearts','Clubs','Spades','Diamonds']
+let cardValues = ['2','3','4','5','6','7','8','9','10','Jack','Queen','King','Ace']
 
+class DeckOfCards {
+    
     constructor(deck, card) {
-       this.deck = [];
+        this.deck = [];
     }
 
+    
     createADeck(cardSuits, cardValues) {
         for (let suit of cardSuits) {
             for (let value of cardValues) {
@@ -34,15 +36,22 @@ class DeckOfCards {
     }
 
 
-    // shuffle()
+    // shuffle() {
+    // }
+
+    drawFiveCards() {
+        let hand = [];
+        while (hand.length < 5) {
+            hand.push(this.deck.pop());
+        } 
+        return hand;
+    }
     
 };
 
-let cardSuits = ['Hearts','Clubs','Spades','Diamonds']
-let cardValues = ['2','3','4','5','6','7','8','9','10','Jack','Queen','King','Ace'] 
 let deck1 = new DeckOfCards();
 deck1.createADeck(cardSuits,cardValues)
-console.log(deck1);
+console.log(deck1.drawFiveCards());
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
