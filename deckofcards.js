@@ -1,41 +1,49 @@
 
-// Create a class with:
+// Create a class for a deck of cards with:
 //  - A method for creating a new deck of cards
 //  - An empty deck that can be filled or refreshed
 //  - Another method to shuffle   math.random()
 //  - And a method to draw (.pop) a card.     .pop() for taking last element of array and .unshift() for taking the first element of an array 
 //If you create a new deck, it should restart the deck
 
+//look up best uses for a regular for loop and a for-in loop??
+
 //  have a convo about key value pairs 
 //  Have a convo about classes and how they are created
 
 //what properties should a deck of cards have
-//what do we want it to do? methods
+//what do we want it to do? --> methods like shuffle and deal
 
-import {Card} from "/Users/user2020/projects/deck-of-cards/card"
 
+
+import { Card } from "/Users/user2020/projects/deck-of-cards/card.js";
 
 class DeckOfCards {
 
-    constructor(deck) {
-       this.deck = []; 
-       
+    constructor(deck, card) {
+       this.deck = [];
+    }
 
-       for (let loopingThruSuits = 0; loopingThruSuits < cardSuits.length; loopingThruSuits++) { 
-        for (let loopingThruValues = 0; loopingThruValues < cardValues.length; loopingThruValues++) {
-            let singleCard = new Card (cardSuits[loopingThruSuits] + cardValues[loopingThruValues])
-            console.log(singleCard)
-             //this is a string. reformat this as an object
-            // deck.push(singleCard)
-            console.log(`The ${cardValues[loopingThruValues]} of ${cardSuits[loopingThruSuits]} is card number ${deck.length}`)
+    createADeck(cardSuits, cardValues) {
+        for (let suit of cardSuits) {
+            for (let value of cardValues) {
+                this.deck.push(new Card(suit, value))
             }
         }
+        return this.deck;
     }
-}
 
-const deck1 = new DeckOfCards();
 
-// console.log(deck1.deck)
+    // shuffle()
+    
+};
+
+let cardSuits = ['Hearts','Clubs','Spades','Diamonds']
+let cardValues = ['2','3','4','5','6','7','8','9','10','Jack','Queen','King','Ace'] 
+let deck1 = new DeckOfCards(cardSuits,cardValues);
+deck1.createADeck()
+console.log(deck1);
+
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
