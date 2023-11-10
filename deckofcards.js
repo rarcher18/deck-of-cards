@@ -20,7 +20,7 @@
 //create a method to know if a certain card is still in the deck - returns boolean value
 // create another class for hand() and I would have a method that creates an instance of that class that populates it with cards of the deck.
 
-import { Card } from "/Users/user2020/projects/deck-of-cards/card.js";
+import { Card } from "./card.js";
 
 let cardSuits = ['Hearts','Clubs','Spades','Diamonds']
 let cardValues = ['2','3','4','5','6','7','8','9','10','Jack','Queen','King','Ace']
@@ -44,16 +44,22 @@ class DeckOfCards {
     // createHand()
 
 
-    // shuffle() {
-    //     let i = 0
-    //     while ()
-        
-    // }
+    shuffle() {
+        let counter = this.deck.length, placeholder, i;
+
+        while (counter){
+            i = Math.floor(Math.random() * counter--);
+            placeholder = this.deck[counter] 
+            this.deck[counter] = this.deck[i];
+            this.deck[i] = placeholder;
+        }
+        return this.deck;
+    }
 
     drawFiveCards() {
         let hand = [];
         while (hand.length < 5) {
-            hand.push(this.deck.shift());
+            hand.unshift(this.deck.pop());
         } 
         return hand;
     }
@@ -64,6 +70,7 @@ let deck1 = new DeckOfCards();
 deck1.createADeck(cardSuits,cardValues)
 // deck1.drawFiveCards();
 // console.log(this.deck.length);
+deck1.shuffle();
 console.log(deck1.drawFiveCards());
 
 
