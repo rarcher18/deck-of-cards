@@ -14,6 +14,12 @@
 //what properties should a deck of cards have
 //what do we want it to do? --> methods like shuffle and deal
 
+
+
+//10-23-2023 johnny HW
+//create a method to know if a certain card is still in the deck - returns boolean value
+// create another class for hand() and I would have a method that creates an instance of that class that populates it with cards of the deck.
+
 import { Card } from "/Users/user2020/projects/deck-of-cards/card.js";
 
 let cardSuits = ['Hearts','Clubs','Spades','Diamonds']
@@ -21,7 +27,7 @@ let cardValues = ['2','3','4','5','6','7','8','9','10','Jack','Queen','King','Ac
 
 class DeckOfCards {
     
-    constructor(deck, card) {
+    constructor(deck) {
         this.deck = [];
     }
 
@@ -35,14 +41,19 @@ class DeckOfCards {
         return this.deck;
     }
 
+    // createHand()
+
 
     // shuffle() {
+    //     let i = 0
+    //     while ()
+        
     // }
 
     drawFiveCards() {
         let hand = [];
         while (hand.length < 5) {
-            hand.push(this.deck.pop());
+            hand.push(this.deck.shift());
         } 
         return hand;
     }
@@ -51,7 +62,11 @@ class DeckOfCards {
 
 let deck1 = new DeckOfCards();
 deck1.createADeck(cardSuits,cardValues)
+// deck1.drawFiveCards();
+// console.log(this.deck.length);
 console.log(deck1.drawFiveCards());
+
+
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
