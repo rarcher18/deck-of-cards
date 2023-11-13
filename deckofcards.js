@@ -17,8 +17,9 @@
 
 
 //10-23-2023 johnny HW
+// method to pull a random card from deck - Use shuffle() method first??
 //create a method to know if a certain card is still in the deck - returns boolean value
-// create another class for hand() and I would have a method that creates an instance of that class that populates it with cards of the deck.
+// create another class for hand and I would have a method that creates an instance of that class that populates it with cards of the deck.
 
 import { Card } from "./card.js";
 
@@ -49,7 +50,7 @@ class DeckOfCards {
 
         while (counter){
             i = Math.floor(Math.random() * counter--);
-            placeholder = this.deck[counter] 
+            placeholder = this.deck[counter]  
             this.deck[counter] = this.deck[i];
             this.deck[i] = placeholder;
         }
@@ -61,17 +62,30 @@ class DeckOfCards {
         while (hand.length < 5) {
             hand.unshift(this.deck.pop());
         } 
+        // console.log(`You drew these 5 cards: `)
         return hand;
     }
+
+    // drawRandomCard() {
+    //     if (!this.deck.length) return false;
+    //     const cardIndex = Math.floor(Math.random() * this.deck.length);
+    //     return this.deck.splice(cardIndex, 1)[0];
+    //   }
+
+    // isCardStillInDeck(index) {
+    //     this.deck.includes(index)
+    // }
     
 };
 
 let deck1 = new DeckOfCards();
+let deck2 = new DeckOfCards();
 deck1.createADeck(cardSuits,cardValues)
-// deck1.drawFiveCards();
-// console.log(this.deck.length);
-deck1.shuffle();
+console.log(deck1.shuffle())
 console.log(deck1.drawFiveCards());
+// // console.log(this.deck.length);
+// console.log(deck1.drawFiveCards());
+
 
 
 
