@@ -16,10 +16,10 @@
 
 
 
-//10-23-2023 johnny HW
-// method to pull a random card from deck - Use shuffle() method first??
-//create a method to know if a certain card is still in the deck - returns boolean value
-// create another class for hand and I would have a method that creates an instance of that class that populates it with cards of the deck.
+// johnny notes //
+// method to pull a random card from deck - done
+//create a method to know if a certain card is still in the deck. returns boolean value - not done
+// create another class for hand and I would have a method that creates an instance of that class that populates it with cards of the deck - not started
 
 import { Card } from "./card.js";
 
@@ -62,29 +62,44 @@ class DeckOfCards {
         while (hand.length < 5) {
             hand.unshift(this.deck.pop());
         } 
-        // console.log(`You drew these 5 cards: `)
         return hand;
     }
 
-    // drawRandomCard() {
-    //     if (!this.deck.length) return false;
-    //     const cardIndex = Math.floor(Math.random() * this.deck.length);
-    //     return this.deck.splice(cardIndex, 1)[0];
-    //   }
+    drawRandomCard() {
+        if (!this.deck.length) {
+            return false;
+        }
+        const cardIndex = Math.floor(Math.random() * this.deck.length);
+        return this.deck.splice(cardIndex, 1)[0];
+      }
 
-    // isCardStillInDeck(index) {
-    //     this.deck.includes(index)
-    // }
+    isCardStillInDeck(index) {
+        // for (let i = 0; i < this.deck.length; i++) {
+        //     if (this.deck[i] === index){
+        //         return true;
+        //     }
+        // }return false;
+        this.deck.includes(index, this.deck.length -1)
+    }
+
     
 };
 
 let deck1 = new DeckOfCards();
-let deck2 = new DeckOfCards();
 deck1.createADeck(cardSuits,cardValues)
-console.log(deck1.shuffle())
+
+// deck1.shuffle();
+console.log(deck1.drawRandomCard());
 console.log(deck1.drawFiveCards());
-// // console.log(this.deck.length);
-// console.log(deck1.drawFiveCards());
+console.log(deck1.isCardStillInDeck({ suit: 'Diamonds', value: 'Queen' }));
+
+
+
+
+
+// let deck2 = new DeckOfCards();
+// deck2.createADeck(cardSuits,cardValues)
+// console.log(deck2);
 
 
 
