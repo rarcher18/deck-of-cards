@@ -6,22 +6,17 @@
 //  - And a method to draw (.pop) a card.     .pop() for taking last element of array and .unshift() for taking the first element of an array 
 //If you create a new deck, it should restart the deck
 
-//look up best uses for a regular for loop and a for-in loop??
-
-//  have a convo about key value pairs 
-//  Have a convo about classes and how they are created
-
-//what properties should a deck of cards have
-//what do we want it to do? --> methods like shuffle and deal
 
 
+//create a method to know if a certain card is still in the deck. returns boolean value - done
+// How does JS runtime handle comparing object??
 
-// johnny notes //
-// method to pull a random card from deck - done
-//create a method to know if a certain card is still in the deck. returns boolean value - not done
-// create another class for hand and I would have a method that creates an instance of that class that populates it with cards of the deck - not started
 
 import { Card } from "./card.js";
+import { Hand } from "./hand.js";
+
+// const _ = require('lodash');
+
 
 let cardSuits = ['Hearts','Clubs','Spades','Diamonds']
 let cardValues = ['2','3','4','5','6','7','8','9','10','Jack','Queen','King','Ace']
@@ -41,9 +36,6 @@ class DeckOfCards {
         }
         return this.deck;
     }
-
-    // createHand()
-
 
     shuffle() {
         let counter = this.deck.length, placeholder, i;
@@ -74,12 +66,12 @@ class DeckOfCards {
       }
 
     isCardStillInDeck(index) {
-        // for (let i = 0; i < this.deck.length; i++) {
-        //     if (this.deck[i] === index){
-        //         return true;
-        //     }
-        // }return false;
-        this.deck.includes(index, this.deck.length -1)
+        for (let i = 0; i < this.deck.length; i++) {
+            if (JSON.stringify(this.deck[i]) === JSON.stringify(index)){
+                return true;
+            }
+        }
+        return false;
     }
 
     
@@ -88,9 +80,9 @@ class DeckOfCards {
 let deck1 = new DeckOfCards();
 deck1.createADeck(cardSuits,cardValues)
 
-// deck1.shuffle();
+deck1.shuffle();
 console.log(deck1.drawRandomCard());
-console.log(deck1.drawFiveCards());
+console.log("The cards in your hand are: ", deck1.drawFiveCards());
 console.log(deck1.isCardStillInDeck({ suit: 'Diamonds', value: 'Queen' }));
 
 
