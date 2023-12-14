@@ -26,8 +26,7 @@ class DeckOfCards {
     constructor(deck) {
         this.deck = [];
     }
-
-    
+      
     createADeck(cardSuits, cardValues) {
         for (let suit of cardSuits) {
             for (let value of cardValues) {
@@ -74,7 +73,6 @@ class DeckOfCards {
         return false;
     }
 
-    
 };
 
 let deck1 = new DeckOfCards();
@@ -85,62 +83,6 @@ console.log(deck1.drawRandomCard());
 console.log("The cards in your hand are: ", deck1.drawFiveCards());
 console.log(deck1.isCardStillInDeck({ suit: 'Diamonds', value: 'Queen' }));
 
-
-
-
-
 // let deck2 = new DeckOfCards();
 // deck2.createADeck(cardSuits,cardValues)
 // console.log(deck2);
-
-
-
-
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
-
-// let deckOfCards = () => {
-    // let cardSuits = ['Hearts','Clubs','Spades','Diamonds']  //maybe change these hardcoded values from an array of strings to an object. What does an oject for a card look like?
-    // let cardValues = ['2','3','4','5','6','7','8','9','10','Jack','Queen','King','Ace'] 
-    // let deck = [];
-
-    // queenOfhearts = {
-    //     "suit" : "hearts",
-    //     "value" : "queen"
-    // }
-
-
-    
-    // for (let loopingThruSuits = 0; loopingThruSuits < cardSuits.length; loopingThruSuits++) { 
-    //     for (let loopingThruValues = 0; loopingThruValues < cardValues.length; loopingThruValues++) {
-    //         let singleCard = cardSuits[loopingThruSuits] + cardValues[loopingThruValues] //this is a string. reformat this as an object
-    //         deck.push(singleCard)
-    //         console.log(`The ${cardValues[loopingThruValues]} of ${cardSuits[loopingThruSuits]} is card number ${deck.length}`)
-    //     }
-    // }
-    // console.log(`There are ${deck.length} cards in this deck`)
-//     return deck;
-//}
-    
-    
-    // shuffle() {
-
-
-    // }
-        
-    //     let deal = () => {
-    //         let playersHand = [];
-    //         // deal 7 cards to a players hand
-    //         while (playersHand.length < 7){
-    //         playersHand.push(deck.unshift())
-    //         console.log(playersHand)
-    
-    //     return playersHand;
-    // }
-
-    // newDeck = new deckOfCards;
-    
-// console.log(playersHand)
-// deckOfCards()
-// console.log(deck)
